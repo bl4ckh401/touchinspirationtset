@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Navigation from './Components/NavigationBar';
+import Browse from './Pages/Browse';
+import Edit from './Pages/Edit';
+import { Provider } from 'react-redux';
+import { store } from './Redux/store';
 
 function App() {
+  const [active, setActive] = useState(true)
+
+  const handleNav = () => {
+    setActive(!active)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    < Provider store = { store } className='bg-gray-100'>
+      <Router>
+        <Navigation active={active} onClick={handleNav} />
+        <div className='w-full flex flex-col lg:flex-row'>
+          <div className='flex w-full flex-wrap justify-end items-start'>
+            <Routes>
+              <Route path='/' element={<Browse active={active}/>} />
+              <Route path='/edit/:_id' element={<Edit active={active} />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
