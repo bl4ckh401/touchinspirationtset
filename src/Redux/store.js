@@ -6,7 +6,8 @@ const initialState = {
     bio: '',
     email: '',
     occupation: '',
-    data: null
+    data: null,
+    searchTerm: ''
 
 };
 
@@ -24,6 +25,8 @@ function reducer(state = initialState, action) {
             return { ...state, data: action.payload };
         case 'FETCH_SINGLE_DATA_SUCCESS':
             return { ...state, data: action.payload };
+        case 'SEARCH_DATA':
+            return { ...state, searchTerm: action.payload };
         default:
             return state;
     }

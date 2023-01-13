@@ -6,6 +6,7 @@ import Browse from './Pages/Browse';
 import Edit from './Pages/Edit';
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
+import CreateEmployee from './Pages/CreateEmployee';
 
 function App() {
   const [active, setActive] = useState(true)
@@ -21,6 +22,7 @@ function App() {
           <div className='flex w-full flex-wrap justify-end items-start'>
             <Routes>
               <Route path='/' element={<Browse active={active}/>} />
+              <Route path='/create' element={<CreateEmployee active={active} />} />
               <Route path='/edit/:_id' element={<Edit active={active} />} />
             </Routes>
           </div>

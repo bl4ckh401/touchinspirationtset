@@ -6,6 +6,59 @@
   height: 40vmin;
   pointer-events: none;
 }
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+.bounce-1,
+.bounce-2,
+.bounce-3 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #6a51ae;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bounce-1 {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.bounce-2 {
+  animation: bounce 1s ease-in-out 0.33s infinite;
+}
+
+.bounce-3 {
+  animation: bounce 1s ease-in-out 0.66s infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
