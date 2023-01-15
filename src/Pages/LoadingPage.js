@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingPage = () => {
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center w-full items-center h-screen">
             <div className="text-center text-5xl">
                 <div className="spinner rotate">
                     <div className="bounce-1"></div>

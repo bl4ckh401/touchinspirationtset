@@ -27,6 +27,8 @@ function reducer(state = initialState, action) {
             return { ...state, data: action.payload };
         case 'SEARCH_DATA':
             return { ...state, searchTerm: action.payload };
+        case 'RESET_DATA':
+            return {...state, data: {}}
         default:
             return state;
     }

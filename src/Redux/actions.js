@@ -86,5 +86,12 @@ export function createData(id) {
         } catch (error) { console.log(error) };
     }
 }
+export function resetData() {
+    return {
+        type: 'RESET_DATA',
+        payload: {}
+    }
+}
+
 
 
